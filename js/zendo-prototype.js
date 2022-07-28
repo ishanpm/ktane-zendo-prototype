@@ -59,6 +59,7 @@ function refreshDisplay() {
     let validString = document.getElementById("validstring");
     let yesButton = document.getElementById("btn-yes");
     let noButton = document.getElementById("btn-no");
+    let readyButton = document.getElementById("btn-ready");
 
     if (rule) {
         if (showRule || moduleState == "solved" || moduleState == "failed") {
@@ -71,6 +72,7 @@ function refreshDisplay() {
             validString.innerText = `Challenge mode - ${stageNumber} / ${challenge.length} solved`
             yesButton.classList.remove("highlight");
             noButton.classList.remove("highlight");
+            readyButton.classList.add("highlight");
         } else {
             let status = "";
             if (moduleState == "solved") status = "SOLVED! ";
@@ -85,6 +87,7 @@ function refreshDisplay() {
                 yesButton.classList.remove("highlight");
                 noButton.classList.add("highlight");
             }
+            readyButton.classList.remove("highlight");
         }
     } else {
         ruleString.innerText = "No rule";
@@ -147,9 +150,9 @@ function setModuleState(newState) {
 function generateChallenge() {
     // TODO better challenge generation
 
-    challenge = generateExamples(4,4);
+    challenge = generateExamples(stageTotal-1, stageTotal-1);
     shuffleArray(challenge);
-    challenge.splice(5,3);
+    challenge = challenge.slice(0,stageTotal);
 
     setDisplayGrid(challenge[0]);
 
