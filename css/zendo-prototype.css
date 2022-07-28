@@ -1,0 +1,98 @@
+.module-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 25em;
+    height: 25em;
+    padding: 0.5em;
+    border: 2px solid black;
+}
+
+.module-top {
+    display: flex;
+    flex-direction: row;
+}
+
+#grid {
+    width: 330px;
+    aspect-ratio: 1;
+}
+
+#status-light {
+    width: 1.5em;
+    height: 1.5em;
+    align-self: end;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 2em;
+    margin: 0.5em;
+}
+
+#status-light.strike {
+    background-color: rgb(255, 0, 0);
+}
+
+#status-light.solve {
+    background-color: rgb(56, 255, 56);
+}
+
+.palette-holder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0.5em;
+}
+
+.palette {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.swatch-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-swatch {
+    flex: 1 0 2em;
+}
+
+#brush {
+    width: 50px;
+    height: 50px;
+    margin: 0.5em 0em;
+}
+
+.module-bottom {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 0.5em 0em 0em 0em;
+}
+
+#btn-yes, #btn-no {
+    flex: 1
+}
+
+button.highlight {
+    border: 5px solid rgb(19, 175, 19);
+}
+
+#btn-ready {
+    flex: 5;
+    margin-left: 0.5em;
+}
+
+.flex-spacer {
+    flex: 1
+}
+
+.flex-h-divider {
+    width: 0.5em
+}
+
+#btn-yes, #btn-no, #btn-ready, .btn-swatch, #brush, #grid {
+    cursor: pointer;
+}

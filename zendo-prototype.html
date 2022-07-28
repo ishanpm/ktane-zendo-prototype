@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/zendo-prototype.css">
+</head>
+<body>
+    <div>
+        <label>Show rule<input type="checkbox" id="showrule" onchange="refreshDisplay()"></label><br>
+        <button onclick="resetModule()">New instance</button>
+    </div>
+    <p id="rulestring">Rule: ?</p>
+    <p id="validstring">This pattern is ?</p>
+    <div class="module-container">
+        <div class="module-top">
+            <canvas id="grid" onclick="gridOnClick(event)"></canvas>
+
+            <div class="palette-holder">
+                <div id="status-light"></div>
+                <div class="flex-spacer"></div>
+                <div class="palette">
+                    <div class="swatch-column">
+                        <button class="btn-swatch" onclick="setShape(0)">C</button>
+                        <button class="btn-swatch" onclick="setShape(1)">T</button>
+                        <button class="btn-swatch" onclick="setShape(2)">S</button>
+                    </div>
+                    <div class="swatch-column">
+                        <button class="btn-swatch" onclick="setColor(0)">R</button>
+                        <button class="btn-swatch" onclick="setColor(1)">Y</button>
+                        <button class="btn-swatch" onclick="setColor(2)">B</button>
+                    </div>
+                </div>
+                <canvas id="brush" width="50" height="50" onclick="erasePress()"></canvas>
+                <div class="flex-spacer"></div>
+            </div>
+        </div>
+        <div class="module-bottom">
+            <button id="btn-yes" onclick="buttonPress('y')">Y</button>
+            <button id="btn-no" onclick="buttonPress('n')">N</button>
+            <button id="btn-ready" onclick="buttonPress('ready')">Ready</button>
+        </div>
+    </div>
+
+    <script src="script/zendo-prototype.js"></script>
+</body>
+</html>
