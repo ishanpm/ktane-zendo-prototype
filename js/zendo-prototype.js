@@ -128,12 +128,27 @@ function refreshDisplay() {
     brushCtx.fillStyle = "black";
     brushCtx.fillRect(0, 0, 200, 200);
 
-    if (!brushErase) {
+    if (moduleState == "challenge") {
+        // Stage indicator
         brushCtx.save();
 
-        drawSymbol(brushCtx, {color: brushColor, shape: brushShape}, 0, 0);
+        brushCtx.fillStyle = "white";
+        brushCtx.textAlign = "center";
+        brushCtx.textBaseline = "middle";
+        brushCtx.font = "80px Courier New"
+
+        brushCtx.fillText(`${stageNumber}/${challenge.length}`, 100, 105, 180);
 
         brushCtx.restore();
+    } else {
+        // Brush
+        if (!brushErase) {
+            brushCtx.save();
+
+            drawSymbol(brushCtx, {color: brushColor, shape: brushShape}, 0, 0);
+
+            brushCtx.restore();
+        }
     }
 }
 
