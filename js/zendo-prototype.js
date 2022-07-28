@@ -307,7 +307,7 @@ function drawSymbol(ctx, symbol, x, y) {
     switch (symbol.color) {
         case 0: ctx.fillStyle = "red"; break;
         case 1: ctx.fillStyle = "yellow"; break;
-        case 2: ctx.fillStyle = "blue"; break;
+        case 2: ctx.fillStyle = "#194fff"; break;
     }
 
     switch (symbol.shape) {
