@@ -178,6 +178,8 @@ function setColor(newColor) {brushColor = newColor; brushErase = false; refreshD
 function setShape(newShape) {brushShape = newShape; brushErase = false; refreshDisplay()}
 
 function erasePress() {
+    if (moduleState == "challenge") return;
+
     if (brushErase) {
         setDisplayGrid(Array(9).fill(null));
     } else {
@@ -232,6 +234,8 @@ function buttonPress(button) {
 }
 
 function gridOnClick(event) {
+    if (moduleState == "challenge") return;
+    
     let x = event.offsetX / event.target.clientWidth;
     let y = event.offsetY / event.target.clientWidth;
 
