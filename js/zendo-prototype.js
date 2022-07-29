@@ -19,6 +19,8 @@ let challenge = [];
 
 function resetModule() {
     rule = randomRule();
+    console.log("The rule is: " + rule.descSingular);
+
     brushColor = 0;
     brushShape = 0;
     brushErase = false;
@@ -205,9 +207,14 @@ function buttonPress(button) {
                     setDisplayGrid(challenge[stageNumber]);
                 } else {
                     setModuleState("solved")
+                    console.log("Solved!");
                 }
+
+                
             } else {
                 setModuleState("failed")
+                console.log("The grid was:\n" + gridToString(grid));
+                console.log(`This was ${actual ? "valid" : "invalid"} but you pressed "${answer ? "Y" : "N"}".`);
             }
         }
     } else {
@@ -235,7 +242,7 @@ function buttonPress(button) {
 
 function gridOnClick(event) {
     if (moduleState == "challenge") return;
-    
+
     let x = event.offsetX / event.target.clientWidth;
     let y = event.offsetY / event.target.clientWidth;
 
@@ -826,6 +833,12 @@ function checkConnected(cells) {
 
 function indices(a) {
     return a.map((_,i) => i);
+}
+
+function gridToString(g) {
+    let cells = g.map(e => e == null ? "  " : ("ryb"[e.color] + "CTS"[e.shape]));
+    cells = cells.map((e,i) => (i == 8) ? e : (e + (i%3 == 2 ? "\n--+--+--\n" : "|")));
+    return cells.join("");
 }
 
 resetModule();
