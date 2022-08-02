@@ -676,7 +676,7 @@ let ruleDict = {
         // All symbols
         {
             descSingular: "All symbols",
-            weight: 20,
+            weight: 5,
             match: (g) => [indices(g).filter(i => g[i] != null)]
         },
         // Symbols in the same row
